@@ -338,8 +338,19 @@
         window.addEventListener('resize', updateNavIcon);
 
         function toggleDarkMode() {
-            document.documentElement.classList.toggle('dark');
+            const htmlElement = document.documentElement;
+            htmlElement.classList.toggle('dark');
+            localStorage.setItem('theme', htmlElement.classList.contains('dark') ? 'dark' : 'light');
         }
+
+        // Load theme from localStorage
+        document.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        });
 
         // Initial icon update
         updateNavIcon();
