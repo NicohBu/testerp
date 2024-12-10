@@ -1,0 +1,348 @@
+<html lang="es">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   ERP Interface
+  </title>
+  <script src="https://cdn.tailwindcss.com">
+  </script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Roboto', sans-serif;
+        }
+  </style>
+ </head>
+ <body class="bg-gray-100 dark:bg-gray-900 dark:text-white">
+  <div class="flex h-screen flex-col md:flex-row">
+   <!-- Sidebar -->
+   <div class="w-full md:w-64 bg-blue-900 dark:bg-gray-800 text-white flex flex-col" id="sidebar">
+    <div class="p-4 text-center text-2xl font-bold border-b border-blue-800 dark:border-gray-700">
+     <i class="fas fa-cogs">
+     </i>
+     <span class="dark:text-gray-300">ERP System</span>
+    </div>
+    <nav class="flex-1 p-4">
+     <ul>
+      <li class="mb-4">
+       <a class="flex items-center p-2 hover:bg-blue-800 dark:hover:bg-gray-700 rounded" href="#">
+        <i class="fas fa-tachometer-alt mr-2">
+        </i>
+        <span class="dark:text-gray-300">Dashboard</span>
+       </a>
+      </li>
+      <li class="mb-4">
+       <a class="flex items-center p-2 hover:bg-blue-800 dark:hover:bg-gray-700 rounded" href="#">
+        <i class="fas fa-users mr-2">
+        </i>
+        <span class="dark:text-gray-300">Usuarios</span>
+       </a>
+      </li>
+      <li class="mb-4">
+       <a class="flex items-center p-2 hover:bg-blue-800 dark:hover:bg-gray-700 rounded" href="#">
+        <i class="fas fa-boxes mr-2">
+        </i>
+        <span class="dark:text-gray-300">Inventario</span>
+       </a>
+      </li>
+      <li class="mb-4">
+       <a class="flex items-center p-2 hover:bg-blue-800 dark:hover:bg-gray-700 rounded" href="#">
+        <i class="fas fa-file-invoice-dollar mr-2">
+        </i>
+        <span class="dark:text-gray-300">Facturación</span>
+       </a>
+      </li>
+      <li class="mb-4">
+       <a class="flex items-center p-2 hover:bg-blue-800 dark:hover:bg-gray-700 rounded" href="#">
+        <i class="fas fa-chart-line mr-2">
+        </i>
+        <span class="dark:text-gray-300">Reportes</span>
+       </a>
+      </li>
+      <li class="mb-4">
+       <a class="flex items-center p-2 hover:bg-blue-800 dark:hover:bg-gray-700 rounded" href="#">
+        <i class="fas fa-cogs mr-2">
+        </i>
+        <span class="dark:text-gray-300">Configuración</span>
+       </a>
+      </li>
+     </ul>
+    </nav>
+   </div>
+   <!-- Main Content -->
+   <div class="flex-1 flex flex-col">
+    <!-- Header -->
+    <header class="bg-white dark:bg-gray-800 shadow p-4 flex flex-col md:flex-row justify-between items-center">
+     <div class="flex items-center w-full md:w-auto">
+      <button class="p-2 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded-full" onclick="toggleNav()">
+       <i class="fas fa-chevron-down md:fa-chevron-left" id="navToggleIcon">
+       </i>
+      </button>
+      <div class="text-xl font-semibold ml-4">
+       Dashboard
+      </div>
+     </div>
+     <div class="flex items-center w-full md:w-auto mt-4 md:mt-0">
+      <div class="relative w-full md:w-64">
+       <input class="border rounded p-2 w-full dark:bg-gray-700 dark:border-gray-600 dark:text-white" placeholder="Buscar..." type="text"/>
+       <i class="fas fa-search absolute right-2 top-2 text-gray-500 dark:text-gray-400">
+       </i>
+      </div>
+      <button class="p-2 bg-gray-300 dark:bg-gray-700 text-black dark:text-white rounded-full ml-4" onclick="toggleDarkMode()">
+       <i class="fas fa-moon dark:hidden">
+       </i>
+       <i class="fas fa-sun hidden dark:block">
+       </i>
+      </button>
+      <img alt="Imagen de perfil de usuario" class="ml-4 rounded-full" height="40" src="https://storage.googleapis.com/a1aa/image/ffrwmJMJtlhYQUw2X7FhCpfVa0geYJWkOi29ayfrLfYC9LYeJA.jpg" width="40"/>
+     </div>
+    </header>
+    <!-- Main Section -->
+    <main class="flex-1 p-6">
+     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Card 1 -->
+      <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+       <div class="flex items-center">
+        <div class="p-3 bg-blue-500 rounded-full text-white">
+         <i class="fas fa-users">
+         </i>
+        </div>
+        <div class="ml-4">
+         <div class="text-lg font-semibold">
+          Usuarios
+         </div>
+         <div class="text-gray-500 dark:text-gray-400">
+          150
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- Card 2 -->
+      <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+       <div class="flex items-center">
+        <div class="p-3 bg-green-500 rounded-full text-white">
+         <i class="fas fa-boxes">
+         </i>
+        </div>
+        <div class="ml-4">
+         <div class="text-lg font-semibold">
+          Inventario
+         </div>
+         <div class="text-gray-500 dark:text-gray-400">
+          320
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- Card 3 -->
+      <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+       <div class="flex items-center">
+        <div class="p-3 bg-yellow-500 rounded-full text-white">
+         <i class="fas fa-file-invoice-dollar">
+         </i>
+        </div>
+        <div class="ml-4">
+         <div class="text-lg font-semibold">
+          Facturación
+         </div>
+         <div class="text-gray-500 dark:text-gray-400">
+          $12,000
+         </div>
+        </div>
+       </div>
+      </div>
+      <!-- Card 4 -->
+      <div class="bg-white dark:bg-gray-800 p-4 rounded shadow">
+       <div class="flex items-center">
+        <div class="p-3 bg-red-500 rounded-full text-white">
+         <i class="fas fa-chart-line">
+         </i>
+        </div>
+        <div class="ml-4">
+         <div class="text-lg font-semibold">
+          Reportes
+         </div>
+         <div class="text-gray-500 dark:text-gray-400">
+          24
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+     <!-- Table Section -->
+     <div class="mt-6 bg-white dark:bg-gray-800 p-4 rounded shadow overflow-x-auto">
+      <div class="text-lg font-semibold mb-4 text-center">
+       Últimas Transacciones
+      </div>
+      <table class="min-w-full bg-white dark:bg-gray-800 text-center">
+       <thead>
+        <tr>
+         <th class="py-2 px-4 border-b dark:border-gray-700">
+          ID
+         </th>
+         <th class="py-2 px-4 border-b dark:border-gray-700">
+          Usuario
+         </th>
+         <th class="py-2 px-4 border-b dark:border-gray-700">
+          Producto
+         </th>
+         <th class="py-2 px-4 border-b dark:border-gray-700">
+          Cantidad
+         </th>
+         <th class="py-2 px-4 border-b dark:border-gray-700">
+          Total
+         </th>
+         <th class="py-2 px-4 border-b dark:border-gray-700">
+          Fecha
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          1
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          Juan Pérez
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          Laptop
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          1
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          $1,200
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          2023-10-01
+         </td>
+        </tr>
+        <tr>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          2
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          María López
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          Mouse
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          2
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          $40
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          2023-10-02
+         </td>
+        </tr>
+        <tr>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          3
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          Carlos García
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          Teclado
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          1
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          $60
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          2023-10-03
+         </td>
+        </tr>
+        <tr>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          4
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          Ana Martínez
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          Monitor
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          1
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          $300
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          2023-10-04
+         </td>
+        </tr>
+        <tr>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          5
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          Luis Rodríguez
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          Impresora
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          1
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          $150
+         </td>
+         <td class="py-2 px-4 border-b dark:border-gray-700">
+          2023-10-05
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </main>
+   </div>
+  </div>
+  <script>
+   function toggleNav() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('hidden');
+            updateNavIcon();
+        }
+
+        function updateNavIcon() {
+            const navToggleIcon = document.getElementById('navToggleIcon');
+            const sidebar = document.getElementById('sidebar');
+            if (window.innerWidth < 768) {
+                if (sidebar.classList.contains('hidden')) {
+                    navToggleIcon.classList.remove('fa-chevron-up');
+                    navToggleIcon.classList.add('fa-chevron-down');
+                } else {
+                    navToggleIcon.classList.remove('fa-chevron-down');
+                    navToggleIcon.classList.add('fa-chevron-up');
+                }
+            } else {
+                if (sidebar.classList.contains('hidden')) {
+                    navToggleIcon.classList.remove('fa-chevron-left');
+                    navToggleIcon.classList.add('fa-chevron-right');
+                } else {
+                    navToggleIcon.classList.remove('fa-chevron-right');
+                    navToggleIcon.classList.add('fa-chevron-left');
+                }
+            }
+        }
+
+        window.addEventListener('resize', updateNavIcon);
+
+        function toggleDarkMode() {
+            document.documentElement.classList.toggle('dark');
+        }
+
+        // Initial icon update
+        updateNavIcon();
+  </script>
+ </body>
+</html>
